@@ -79,7 +79,16 @@
         else if (board[0] == player && board[4] == player && board[8] == player) {
             return true;
         }
-        
+        else if (board[0] == player && board[3] == player && board[6] == player) {
+            return true;
+        }
+        else if (board[1] == player && board[4] == player && board[7] == player) {
+            return true;
+        }
+        else if (board[2] == player && board[5] == player && board[8] == player) {
+            return true;
+        }
+
 
         return false;
     }
@@ -89,8 +98,14 @@
     /// <returns>True if the board is full.</returns>
     static bool IsTie(List<string> board)
     {
-        
-        return false;
+        foreach(string value in board)
+        {
+            if(char.IsDigit(value[0])) 
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     /// <summary>Cycles through the players (from x to o and o to x)</summary>
@@ -111,6 +126,7 @@
     /// <returns>A 1-based spot number (not a 0-based index)</returns>
     static int GetMoveChoice(string currentPlayer)
     {
+        
         return 1;
     }
 
