@@ -125,9 +125,19 @@
     /// <param name="currentPlayer">The sign (x or o) of the current player.</param>
     /// <returns>A 1-based spot number (not a 0-based index)</returns>
     static int GetMoveChoice(string currentPlayer)
-    {
-        return 1;
+        
+        {
+        Console.Write($"{currentPlayer}'s turn to choose a square (1-9): ");
+        string? move_string = Console.ReadLine();
+
+        if (move_string is null) {
+            return 0;
+        }
+
+        int choice = int.Parse(move_string);
+        return choice;
     }
+    
 
     /// <summary>
     /// Places the current players mark on the board at the desired spot.
@@ -138,6 +148,8 @@
     /// <param name="currentPlayer">The current player's sign (x or o)</param>
     static void MakeMove(List<string> board, int choice, string currentPlayer)
     {
+        int index = choice - 1;
 
+        board[index] = currentPlayer;
     }
 }
